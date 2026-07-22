@@ -29,5 +29,32 @@ class TestIsPalindrome(unittest.TestCase):
         self.assertFalse(self.solution.isPalindrome(1000000002))
 
 
+class TestIsPalindromeInt(unittest.TestCase):
+    def setUp(self) -> None:
+        self.solution = Solution()
+
+    def test_single_digit_numbers_are_palindromes(self) -> None:
+        self.assertTrue(self.solution.isPalindromeInt(0))
+        self.assertTrue(self.solution.isPalindromeInt(7))
+
+    def test_simple_palindromes(self) -> None:
+        self.assertTrue(self.solution.isPalindromeInt(121))
+        self.assertTrue(self.solution.isPalindromeInt(12321))
+        self.assertTrue(self.solution.isPalindromeInt(1001))
+
+    def test_non_palindromes(self) -> None:
+        self.assertFalse(self.solution.isPalindromeInt(10))
+        self.assertFalse(self.solution.isPalindromeInt(123))
+        self.assertFalse(self.solution.isPalindromeInt(100002))
+
+    def test_negative_numbers_are_not_palindromes(self) -> None:
+        self.assertFalse(self.solution.isPalindromeInt(-121))
+        self.assertFalse(self.solution.isPalindromeInt(-1))
+
+    def test_large_numbers(self) -> None:
+        self.assertTrue(self.solution.isPalindromeInt(1000000001))
+        self.assertFalse(self.solution.isPalindromeInt(1000000002))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
